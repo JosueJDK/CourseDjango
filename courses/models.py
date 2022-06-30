@@ -8,15 +8,15 @@ class Teacher(models.Model):
     matern_name = models.CharField(max_length=20)
 
     def __str__(self):
-        return f'Teacher: {self.name} {self.patern_name} {self.matern_name}'
+        return self.name + ' ' + self.patern_name + ' ' + self.matern_name
 
 class Course(models.Model):
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     course_name = models.CharField(max_length=100)
-    descripton = models.TextField()
+    description = models.TextField()
 
     def __str__(self):
-        return f'Course: {self.course_name}  - {self.teacher}'
+        return self.course_name
 
 class HomeWork(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
