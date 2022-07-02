@@ -1,4 +1,10 @@
-<h1>My course</h1>
-<h2>{{course.course_name}}</h2>
-<p>{{ course.descripton }}</p>
-<h3>{{ course.teacher }}</h3>
+{% extends 'main.html' %}
+
+{% block title %} {{course.course_name}} {% endblock %}
+
+{% block content %}
+    <h1>My course</h1>
+    <h2>{{course.course_name}}</h2>
+    <p>{{ course.descripton }}</p>
+    <h3>{{ course.teacher }}</h3>
+{%  endblock %}

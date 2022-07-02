@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block title %} Homeworks {% endblock %}
+
+{% block content %}
+    <h1>Homeworks</h1>
+
+    {% for homework in homeworks %}
+        <h2>{{ homework.homework_name }}</h2>
+        <h2>Curso: {{ homework.course }}</h2>
+        <p>{{ homework.description }}</p>
+        <h3>Publicate: {{ homework.pub_date }}</h3>
+        <h3>Return: {{ homework.return_date }}</h3>
+        <br>
+    {% endfor %}
+{% endblock %}

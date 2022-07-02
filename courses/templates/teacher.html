@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+
+{% block title %} Teachers {% endblock %}
+
+{% block content %}
+    <h1>Teachers</h1>
+    <a href="{% url 'courses:create-teacher' %}">Add teacher</a>
+    {% for teacher in teachers %}
+        <h2>{{ teacher.name }} {{ teacher.patern_name }} {{ teacher.matern_name }}</h2>
+    {% endfor %}
+{% endblock %}
+

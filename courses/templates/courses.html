@@ -1,8 +1,14 @@
-<h1>My courses!</h1>
+{% extends 'main.html' %}
 
-{% for course in courses %}
-    <h2>{{course.course_name}}</h2>
-    <p>{{ course.descripton }}</p>
-    <h3>{{ course.teacher }}</h3>
-    <a href="{% url 'courses:course' course.id %}"> Ver... </a>
-{% endfor %}
+{% block title %} Courses {% endblock %}
+
+{% block content %}
+    <h1>My courses!</h1>
+
+    {% for course in courses %}
+        <h2>{{course.course_name}}</h2>
+        <p>{{ course.descripton }}</p>
+        <h3>{{ course.teacher }}</h3>
+        <a href="{% url 'courses:course' course.id %}"> Ver... </a>
+    {% endfor %}
+{% endblock %}
