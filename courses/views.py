@@ -30,10 +30,18 @@ def form_teacher(request):
         form = FormTeacher(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse("Teacher adding!")
+            return redirect('courses:teacher')
     context = {'form': form}
 
     return render(request, 'form_teacher.html', context)
+
+def delete_teacher(request, pk):
+    teacher = Teacher.objects.get(id = pk)
+    if request.method == 'POST':
+        teacher.delete()
+        return redirect('courses:teacher')
+    return render(request, 'delete_teacher.html', {'obj':teacher})
+
 
 def form_course(request):
     form = FormCourse()
@@ -42,6 +50,6 @@ def form_course(request):
         form = FormCourse(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse("Course adding!")
+            return redirect('courses:courses')
     context = {'form':form}
     return render(request, 'form_course.html', context)
